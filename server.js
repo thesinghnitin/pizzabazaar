@@ -29,9 +29,9 @@ const Emitter= require('events')
 
 // Database connection
 
-const url= 'mongodb://localhost/Pizza';
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connect(process.env.MONGO_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true});
 
 
 const connection= mongoose.connection;
@@ -69,7 +69,7 @@ connection
        
         resave:false,
         store: MongoDbStore.create({
-            mongoUrl:url ,
+            mongoUrl:process.env.MONGO_CONNECTION_URL,
             collectionName: 'sessions'
         }),
         saveUninitialized:false,
