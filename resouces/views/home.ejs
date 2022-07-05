@@ -1,0 +1,85 @@
+
+
+ <section class="hero py-4 	">
+
+    <div class="container mx-auto  flex items-center justify-between ">
+       
+
+        <div class="w-1/2">
+            <h6 class="text-lg"><em>Every Body</em></h6>
+            <h1 class="text-3xl md:text-6xl font-bold">Loves Pizaa...</h1>
+            
+            <button class=" px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
+          </div>
+  
+
+        <div class=" w-2/3">
+            <!-- <img src="img/hero-pizza.png" alt="logo" > -->
+          <img  class="im" src="img/22.jpeg" alt="logo" >
+       
+       </div>
+
+    </div> 
+
+</section>
+
+
+<section class="menu container mx-auto py-8">
+
+    <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
+
+
+        <!-- only one block hardcoded, now recieve menu array from 
+        database and run the loop on it, recieve var name pizzas which 
+        is array of object
+      -->
+
+      <!-- on each iteration it recieve single object pizza -->
+      <!-- // we use <% %> bcz it is syntax of ejs and it prevents mixing of -->
+      <!-- pure html and js  -->
+
+      <% pizzas.forEach(function(pizza) { %>
+
+
+<div class="w-full md:w-64">
+
+
+            <img class=" ss h-40 mb-4 mx-auto" src="/img/<%=pizza.image%>" alt="logo" >
+   
+            <!-- <img class="h-40 mb-4 mx-auto" src="/img/pizza.png" alt="logo" > -->
+
+            <div class="text-center">
+          <h2 class="mb-4 text-lg "><%=pizza.name%></h2>
+          <span class=" size py-1 px-4 rounded-full uppercase text-xm"><%=pizza.size%></span>
+
+          <div class="flex items-center justify-around mt-6">
+              <span class="font-bold text-lg">Rs <%=pizza.price %></span>
+              
+              <!-- we bind the current pizza with data and sent it to the event listener
+            we cannot send object so first change it into string and
+        on the event lsit side we convert again to object
+     -->
+              <button data-pizza="<%=JSON.stringify(pizza) %>" class="add-to-cart py-1 px-6 rounded-full flex item-center font-bold">
+                  <span>+</span>
+                  <span class="ml-4">Add</span>
+              </button>
+          </div>
+            </div>
+
+        </div>
+
+    <%  }) %>
+
+       
+
+  
+
+
+
+
+    </div>
+
+
+</section>
