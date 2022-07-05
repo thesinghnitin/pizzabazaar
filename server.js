@@ -8,7 +8,7 @@ const ejs = require('ejs')
 const expressLayout = require('express-ejs-layouts')
 const path= require('path')
 
-const PORT= process.env.PORT || 4000
+const PORT= process.env.PORT 
 
 const mongoose = require('mongoose')
 
